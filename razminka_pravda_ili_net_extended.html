@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Разминка: правда или нет? (расширенная) — Княжна Мери</title>
+<style>
+  :root{
+    --bg: #EEF3F1;
+    --paper: #FFFFFF;
+    --ink: #223034;
+    --ink-soft: #4B5C60;
+    --teal: #2E6E63;
+    --teal-dark: #1F4F47;
+    --amber: #C79A44;
+    --amber-soft: #F3E6C9;
+    --rose-soft: #F3DFDC;
+    --line: #D8E0DD;
+    --radius: 14px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; transition: none !important; }
+  }
+  *{ box-sizing: border-box; }
+  body{
+    margin:0; padding: 20px;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, "Segoe UI", Verdana, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  .wrap{ max-width: 680px; margin: 0 auto; }
+
+  section{
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 24px 26px;
+  }
+  section h2{
+    font-family: Georgia, serif;
+    font-size: 21px;
+    margin: 0 0 4px;
+    color: var(--teal-dark);
+    display:flex; align-items:center; gap:10px;
+  }
+  section h2 .num{
+    background: var(--amber-soft);
+    color: var(--amber);
+    border-radius: 8px;
+    font-family: -apple-system, Verdana, sans-serif;
+    font-size: 13px;
+    padding: 3px 9px;
+    font-weight: 700;
+  }
+  section .time-tag{
+    color: var(--ink-soft);
+    font-size: 13.5px;
+    margin: 0 0 6px;
+  }
+
+  .score-bar{
+    display:flex; align-items:center; justify-content:space-between;
+    background: var(--teal-dark);
+    color: #F5F1E6;
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin-bottom: 18px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .score-bar span#scoreVal{ color: var(--amber-soft); font-size: 16px; }
+
+  .group-title{
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--teal-dark);
+    margin: 22px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--line);
+  }
+  .group-title:first-of-type{ margin-top: 4px; }
+
+  .quiz-card{
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+  .quiz-card p.stmt{ margin: 0 0 10px; font-weight: 600; }
+  .btn-row{ display:flex; gap:10px; }
+  button.choice{
+    border: 2px solid var(--teal);
+    background: #fff;
+    color: var(--teal-dark);
+    padding: 7px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  button.choice:hover{ background: var(--teal); color: #fff; }
+  button.choice:disabled{ opacity: .45; cursor: default; }
+  .feedback{
+    margin-top: 10px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-size: 14.5px;
+    display:none;
+  }
+  .feedback.show{ display:block; }
+  .feedback.correct{ background:#DCEAE4; color: var(--teal-dark); }
+  .feedback.wrong{ background: var(--rose-soft); color:#7A362F; }
+  .feedback b{ display:block; margin-bottom: 2px; }
+
+  button:focus{ outline: 3px solid var(--amber); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section id="s2">
+    <h2><span class="num">2</span>Разминка: правда или нет?</h2>
+    <p class="time-tag">Расширенная версия · 14 утверждений</p>
+    <div class="score-bar">Правильных ответов: <span id="scoreVal">0 из 14</span></div>
+    <p>Прочитай утверждение и нажми «Правда» или «Неправда». После ответа появится короткое объяснение.</p>
+
+    <div class="group-title">Кто есть кто</div>
+
+    <div class="quiz-card" data-answer="true">
+      <p class="stmt">1. Печорин ведёт дневник и записывает туда свои мысли каждый день.</p>
+      <div class="btn-row">
+        <button class="choice" data-val="true">Правда</button>
+        <button class="choice" data-val="false">Неправда</button>
+      </div>
+      <div class="feedback" data-explain="Часть повести так и называется — «Журнал Печорина». Он записывает всё, что видит и чувствует."></div>
+    </div>
+
+    <div class="quiz-card" data-answer="false">
+      <p class="stmt">2. Действие происходит в Санкт-Петербурге.</p>
+      <div class="btn-row">
+        <button class="choice" data-val="true">Правда</button>
+        <button class="choice" data-val="false">Неправда</button>
+      </div>
+      <div class="feedback" data-explain="Действие происходит на Кавказе — в Пятигорске и Кисловодске, куда съезжаются лечиться на минеральных водах."></div>
+    </div>
+
+    <div class="quiz-card" data-answer="true">
+      <p class="stmt">3. Грушницкий — юнкер, но носит солдатскую шинель, чтобы казаться интереснее.</p>
+      <div class="btn-row">
+        <button class="choice" data-val="true">Правда</button>
+        <button class="choice" data-val="false">Неправда</button>
+      </div>
+      <div class="feedback" data-explain="Это часть его образа «страдальца» — он хочет производить впечатление на женщин."></div>
+    </div>
+
+    <div class="quiz-card" data-answer="false">
+      <p class="stmt">4. Печорин и Грушницкий — настоящие близкие друзья, которые никогда не спорят.</p>
+      <div class="btn-row">
+        <button class="choice" data-val="true">Правда</button>
+        <button class="choice" data-val="false">Неправда</button>
+      </div>
+      <div class="feedback" data-explain="Печорин прямо пишет, что не любит Грушницкого и предчувствует, что они когда-нибудь столкнутся «на узкой дороге»."></div>
+    </div>
+
+    <div class="quiz-card" data-answer="true">
+      <p class="stmt">5. Доктор Вернер — один из немногих людей, с кем Печорин говорит серьёзно и честно.</p>
+      <div class="btn-row">
+        <button class="choice" data-val="true">Правда</button>
+        <button class="choice" data-val="false">Неправда</button>
+      </div>
+      <div class="feedback" data-explain="Вернер и Печорин быстро понимают друг друга — оба скептики, которым скучно с большинством людей."></div>
+    </div>
+
+    <div class="quiz-card" data-answer="false">
+      <p class="stmt">6. Княжна Мери необразованна: не умеет читать по-английски и не знает математики.</p>
+      <div class="btn-row">
+        <button class="choice" data-val="true">Правда</button>
+        <button class="choice" data-val="false">Неправда</button>
+      </div>
+      <div class="feedback" data-explain="Наоборот — доктор Вернер говорит, что она читала Байрона по-английски и знает алгебру."></div>
+    </div>
+
+    <div class="group-title">События в Пятигорске</div>
+
+    <div class="quiz-card" data-answer="true">
+      <p class="stmt">7. Печорин специально перекупает персидский ковёр, который хотела купить княжна Мери, чтобы её позлить.</p>
+      <div class="btn-row">
+        <button class="choice" data-val="true">Правда</button>
+        <button class="choice" data-val="false">Неправда</button>
+      </div>
+      <div class="feedback" data-explain="Он даже нарочно проводит мимо её окон лошадь, покрытую этим ковром — чтобы вызвать реакцию."></div>
+    </div>
+
+    <div class="quiz-card" data-answer="false">
+      <p class="stmt">8. Вера — женщина, которую Печорин видит впервые в жизни на водах.</p>
+      <div class="btn-row">
+        <button class="choice" data-val="true">Правда</button>
+        <button class="choice" data-val="false">Неправда</button>
+      </div>
+      <div class="feedback" data-explain="Печорин и Вера знали друг друга и раньше — у них уже была история любви до встречи в Пятигорске."></div>
+    </div>
+
+    <div class="quiz-card" data-answer="true">
+      <p class="stmt">9. На балу пьяный господин пристаёт к княжне Мери, и Печорин заступается за неё.</p>
+      <div class="btn-row">
+        <button class="choice" data-val="true">Правда</button>
+        <button class="choice" data-val="false">Неправда</button>
+      </div>
+      <div class="feedback" data-explain="После этого случая княгиня-мать благодарит Печорина, и он получает доступ в их дом."></div>
+    </div>
+
+    <div class="group-title">Дуэль и финал</div>
+
+    <div class="quiz-card" data-answer="false">
+      <p class="stmt">10. Перед дуэлью оба пистолета изначально честно заряжены пулями.</p>
+      <div class="btn-row">
+        <button class="choice" data-val="true">Правда</button>
+        <button class="choice" data-val="false">Неправда</button>
+      </div>
+      <div class="feedback" data-explain="Грушницкий и капитан планировали зарядить пулей только один пистолет — тот, что достанется Грушницкому."></div>
+    </div>
+
+    <div class="quiz-card" data-answer="true">
+      <p class="stmt">11. Печорин узнаёт о заговоре против себя и сам предлагает драться на краю обрыва.</p>
+      <div class="btn-row">
+        <button class="choice" data-val="true">Правда</button>
+        <button class="choice" data-val="false">Неправда</button>
+      </div>
+      <div class="feedback" data-explain="Он делает так, чтобы даже лёгкая рана стала смертельной — этим он «уравнивает» опасность для обоих."></div>
+    </div>
+
+    <div class="quiz-card" data-answer="true">
+      <p class="stmt">12. Прямо перед выстрелами Печорин просит доктора Вернера по-настоящему зарядить его пистолет.</p>
+      <div class="btn-row">
+        <button class="choice" data-val="true">Правда</button>
+        <button class="choice" data-val="false">Неправда</button>
+      </div>
+      <div class="feedback" data-explain="Он раскрывает обман прямо на месте дуэли — это меняет всё для Грушницкого."></div>
+    </div>
+
+    <div class="quiz-card" data-answer="false">
+      <p class="stmt">13. После дуэли Печорин признаётся княжне Мери в любви и женится на ней.</p>
+      <div class="btn-row">
+        <button class="choice" data-val="true">Правда</button>
+        <button class="choice" data-val="false">Неправда</button>
+      </div>
+      <div class="feedback" data-explain="Он прямо говорит ей: «я вас не люблю» — и уезжает, не женившись."></div>
+    </div>
+
+    <div class="quiz-card" data-answer="true">
+      <p class="stmt">14. В финале Вера уезжает вместе с мужем, а её прощальное письмо — последнее, что связывает её с Печориным.</p>
+      <div class="btn-row">
+        <button class="choice" data-val="true">Правда</button>
+        <button class="choice" data-val="false">Неправда</button>
+      </div>
+      <div class="feedback" data-explain="Печорин даже мчится за ней вслед, загоняет коня, но не успевает — они расстаются навсегда."></div>
+    </div>
+
+  </section>
+</div>
+
+<script>
+  let score = 0;
+  const total = document.querySelectorAll('.quiz-card').length;
+  document.getElementById('scoreVal').textContent = '0 из ' + total;
+
+  document.querySelectorAll('.quiz-card').forEach(card=>{
+    const answer = card.dataset.answer;
+    const fb = card.querySelector('.feedback');
+    const explain = fb.dataset.explain;
+    const buttons = card.querySelectorAll('.choice');
+    let answered = false;
+
+    buttons.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        if(answered) return;
+        answered = true;
+        const chosen = btn.dataset.val;
+        const isCorrect = (chosen === answer);
+        fb.classList.remove('correct','wrong');
+        fb.classList.add('show', isCorrect ? 'correct' : 'wrong');
+        fb.innerHTML = '<b>' + (isCorrect ? '✔ Верно!' : '✘ Не совсем — правильный ответ: ' + (answer === 'true' ? '«Правда»' : '«Неправда»')) + '</b>' + explain;
+        buttons.forEach(b=> b.disabled = true);
+        if(isCorrect){
+          score++;
+          document.getElementById('scoreVal').textContent = score + ' из ' + total;
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
